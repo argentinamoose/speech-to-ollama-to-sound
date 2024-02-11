@@ -14,3 +14,5 @@ A large language model is a type of artificial intelligence that can process and
 
 ## Text to speech model
 Finally the text to speech model puts out a .wav file from reading the response.
+
+[Example here](https://github.com/argentinamoose/speech-to-ollama-to-sound/blob/main/demo-assets/tts.mp3)
