@@ -1,0 +1,6 @@
+start ollama
+Sun Feb 11 03:02:06 PM CST 2024
+end ollama, start piper
+Sun Feb 11 03:02:29 PM CST 2024
+end piper
+Sun Feb 11 03:02:32 PM CST 2024

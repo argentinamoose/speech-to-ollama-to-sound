@@ -54,7 +54,7 @@ Before running the script I recomend installing the ollama models you plan to us
 ollama pull $modelname
 ```
 
-## Piper-TTS
+## [Piper-TTS](https://github.com/rhasspy/piper)
 Depending on your distribution it may be in your package manager. For example it is in the aur under piper-tts-bin. If it is not, [follow the directions here](https://github.com/rhasspy/piper?tab=readme-ov-file#installation)
 
 ### Post Install
@@ -75,7 +75,7 @@ If you hear the sound you're good to go
 
 *If you manually installed the package make sure that the command is aliased as piper-tts*
 
-## VLC
+## [VLC](https://www.videolan.org/)
 Use your package manager
 
 # Aliasing the script
@@ -93,6 +93,4 @@ To run
 ```sh
 ollama-stt
 ```
-After running the command you can talk and after 3 seconds of not talking it will begin processing what you said.
-
-Please note that the command will save a file title tts.mp3 in the directory you run the command in.
+After running the command you can talk and after 3 seconds of not talking it will begin processing what you said. The program will save the .wav file in ~/piper if you would like to save it for later. When you run the program again it will overwrite.
