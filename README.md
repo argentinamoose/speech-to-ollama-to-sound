@@ -44,17 +44,38 @@ alias nerd-dictation='~/nerd-dictation/nerd-dictation'
 [Download](https://ollama.com/download/Ollama-darwin.zip)
 
 ### Linux & WSL2
-```
+```sh
 curl -fsSL https://ollama.com/install.sh | sh
 ```
 
 ### Post Install
 Before running the script I recomend installing the ollama models you plan to use by running: 
-```
+```sh
 ollama pull $modelname
 ```
 
-## festival, lame, VLC
+## Piper-TTS
+Depending on your distribution it may be in your package manager. For example it is in the aur under piper-tts-bin. If it is not, [follow the directions here](https://github.com/rhasspy/piper?tab=readme-ov-file#installation)
+
+### Post Install
+```sh
+mkdir ~/piper
+```
+```sh
+cd ~/piper
+```
+download the .onnx and the .onnx.json from [this link](https://huggingface.co/rhasspy/piper-voices/tree/v1.0.0/en/en_US/libritts/high), and put the files in your ~/piper directory
+```sh
+echo "hello world" | piper-tts --model ~/piper/en_US-libritts-high.onnx --speaker 41 --output_file tts.wav
+```
+```sh
+nvlc tts.wav
+```
+If you hear the sound you're good to go
+
+*If you manually installed the package make sure that the command is aliased as piper-tts*
+
+## VLC
 Use your package manager
 
 # Aliasing the script

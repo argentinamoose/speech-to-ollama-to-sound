@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
-nerd-dictation begin --output STDOUT --timeout 3 >prompt.txt ;\
-date >time.txt ;\
-ollama run qwen:0.5b <prompt.txt >answer.txt ;\
-date >>time.txt ;\
-text2wave <answer.txt |\
-lame - tts.mp3 ;\
-nvlc tts.mp3
+nerd-dictation begin --output STDOUT --timeout 3 >prompt.txt ;
+echo "start ollama" >time.txt ; date >>time.txt ;
+ollama run qwen:0.5b <prompt.txt >answer.txt ;
+echo "end ollama, start piper" >>time.txt ; date >>time.txt ;
+cat answer.txt |
+piper-tts --model ~/piper/en_US-libritts-high.onnx --speaker 41 --output_file tts.wav ;
+echo "end piper" >>time.txt ; date >>time.txt ;
+nvlc tts.wav
