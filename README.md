@@ -70,10 +70,7 @@ download the .onnx and the .onnx.json from [this link](https://huggingface.co/rh
 
 *you can use any model from [here](https://huggingface.co/rhasspy/piper-voices/tree/v1.0.0), but I recomend the one above*
 ```sh
-echo "hello world" | piper-tts --model ~/piper/en_US-libritts-high.onnx --speaker 41 --output_file tts.wav
-```
-```sh
-nvlc tts.wav
+echo "hello world" | piper-tts --model ~/piper/en_US-libritts-high.onnx --speaker 41 --output_file tts.wav ; nvlc tts.wav
 ```
 If you hear the sound you're good to go
 
@@ -90,16 +87,23 @@ source $path/to/main
 ```
 
 # Usage
-For now the script has to be manually changed to use different models, but the default will be qwen:0.5b because it is the smallest model available and so it will run on most systems. In a future update I will add the ability to flag which model you want to use.
+Prior to running you will need to start ollama in a seperate terminal like so:
+```sh
+ollama serve
+```
 
 The script will take 4 parameters for user customization
 1. Model name for Ollama
 2. Model file location for Piper
 3. Speaker for Piper
-4. Directory for tts.wav to be save (please end without /)
+4. Directory for tts.wav to be saved (please end without /)
 
 My recommended setup as an example
 ```sh
 ollama-stt qwen:0.5b ~/piper/en_US-libritts-high.onnx 41 ~/piper
 ```
-After running the command you can talk and after 3 seconds of not talking it will begin processing what you said. The program will save a tts.wav file in the directory you tell it to. If you would like to save it for later please move it to another location because the program will overwrite every time it runs. Using the debug command (ollam-stt-debug) will save text files as well if you would like those.
+
+
+After running the command you can talk and after 3 seconds of not talking it will begin processing what you said. The program will save a tts.wav file in the directory you tell it to. If you would like to save it for later please move it to another location because the program will overwrite every time it runs. Using the debug command (ollam-stt-debug) will saved text files as well if you would like those.
+
+[Example of how the program works](https://github.com/argentinamoose/speech-to-ollama-to-sound/blob/main/demo.md)
