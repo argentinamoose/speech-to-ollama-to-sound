@@ -82,7 +82,7 @@ If you hear the sound you're good to go
 ## [VLC](https://www.videolan.org/)
 Use your package manager
 
-# Aliasing the script
+# Sourcing the script
 ## Bash, Zsh
 Add this line to your shell's rc with the proper path and suffix for bash or zsh
 ```sh
