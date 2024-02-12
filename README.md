@@ -4,7 +4,7 @@ Allows you to speak to an ollama model and get a response in audio played back
 
 [Installation](https://github.com/argentinamoose/speech-to-ollama-to-sound?tab=readme-ov-file#installation)
 
-[Usage](https://github.com/argentinamoose/speech-to-ollama-to-sound?tab=readme-ov-file#installation)
+[Usage](https://github.com/argentinamoose/speech-to-ollama-to-sound?tab=readme-ov-file#usage)
 
 # Installation
 There are many tools that this script relies on and I am giving simple instructions on how to install them. Please refer to their linked githubs for more info.
