@@ -2,7 +2,9 @@
 
 Allows you to speak to an ollama model and get a response in audio played back
 
-Still a work in progress, many new features to come
+[Installation](https://github.com/argentinamoose/speech-to-ollama-to-sound?tab=readme-ov-file#installation)
+
+[Usage](https://github.com/argentinamoose/speech-to-ollama-to-sound?tab=readme-ov-file#installation)
 
 # Installation
 There are many tools that this script relies on and I am giving simple instructions on how to install them. Please refer to their linked githubs for more info.
@@ -65,6 +67,8 @@ mkdir ~/piper
 cd ~/piper
 ```
 download the .onnx and the .onnx.json from [this link](https://huggingface.co/rhasspy/piper-voices/tree/v1.0.0/en/en_US/libritts/high), and put the files in your ~/piper directory
+
+*you can use any model from [here](https://huggingface.co/rhasspy/piper-voices/tree/v1.0.0), but I recomend the one above*
 ```sh
 echo "hello world" | piper-tts --model ~/piper/en_US-libritts-high.onnx --speaker 41 --output_file tts.wav
 ```
@@ -73,24 +77,29 @@ nvlc tts.wav
 ```
 If you hear the sound you're good to go
 
-*If you manually installed the package make sure that the command is aliased as piper-tts*
+*If you manually installed the package make sure that the command is aliased as piper-tts in your shell's env file*
 
 ## [VLC](https://www.videolan.org/)
 Use your package manager
 
 # Aliasing the script
 ## Bash, Zsh
-Add this line to your shell config with the proper path and suffix for bash or zsh
+Add this line to your shell's rc with the proper path and suffix for bash or zsh
 ```sh
-alias ollama-stt='$path/to/main.sh'
-alias ollama-stt-debug='$path/to/debug.sh'
+source $path/to/main
 ```
 
 # Usage
 For now the script has to be manually changed to use different models, but the default will be qwen:0.5b because it is the smallest model available and so it will run on most systems. In a future update I will add the ability to flag which model you want to use.
 
-To run
+The script will take 4 parameters for user customization
+1. Model name for Ollama
+2. Model file location for Piper
+3. Speaker for Piper
+4. Directory for tts.wav to be save (please end without /)
+
+My recommended setup as an example
 ```sh
-ollama-stt
+ollama-stt qwen:0.5b ~/piper/en_US-libritts-high.onnx ~/piper
 ```
-After running the command you can talk and after 3 seconds of not talking it will begin processing what you said. The program will save the .wav file in ~/piper if you would like to save it for later. When you run the program again it will overwrite.
+After running the command you can talk and after 3 seconds of not talking it will begin processing what you said. The program will save a tts.wav file in the directory you tell it to. If you would like to save it for later please move it to another location because the program will overwrite every time it runs. Using the debug command (ollam-stt-debug) will save text files as well if you would like those.
