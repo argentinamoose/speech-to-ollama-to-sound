@@ -100,6 +100,6 @@ The script will take 4 parameters for user customization
 
 My recommended setup as an example
 ```sh
-ollama-stt qwen:0.5b ~/piper/en_US-libritts-high.onnx ~/piper
+ollama-stt qwen:0.5b ~/piper/en_US-libritts-high.onnx 41 ~/piper
 ```
 After running the command you can talk and after 3 seconds of not talking it will begin processing what you said. The program will save a tts.wav file in the directory you tell it to. If you would like to save it for later please move it to another location because the program will overwrite every time it runs. Using the debug command (ollam-stt-debug) will save text files as well if you would like those.
